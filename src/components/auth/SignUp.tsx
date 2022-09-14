@@ -50,8 +50,8 @@ const SignUp = () => {
     const doNotMatch = userData.password !== '' && isSignUp && userData.password !== userData.confirmPassword
     const tooShort = userData.password !== '' && isSignUp && userData.password.length < 8
 	return (
-		<motion.div className="px-3 mt-20 w-fit rounded-xl m-auto" variants={variants} initial="initial" animate="animate">
-			<form action="" onSubmit={handleSubmit} className="flex flex-col items-center gap-3">
+		<motion.div className="px-3 mt-20 w-fit rounded-xl m-auto w-[80%]" variants={variants} initial="initial" animate="animate">
+			<form action="" onSubmit={handleSubmit} className="flex flex-col items-center gap-3 ">
 				<h4 className="text-xl dark:text-white text-slate-900 font-medium">{isSignUp ? 'Sign Up':'Sign In'}</h4>
 				{isSignUp && <div className="flex gap-2">
 					<Input onChange={handleChange} placeholder="First Name" type="text" name="firstName" extra='w-32' />
