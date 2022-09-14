@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {useEffect, useState} from 'react'
 import {AnimatePresence, AnimateSharedLayout, motion} from 'framer-motion'
 import {useAuth} from '../../contexts/AuthContext'

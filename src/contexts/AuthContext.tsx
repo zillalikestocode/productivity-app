@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useContext, useState, useEffect} from "react";
 import {auth, db } from "../firebase-config";
 import {collection,addDoc,setDoc,getDoc,doc, updateDoc, arrayUnion, arrayRemove} from "firebase/firestore";

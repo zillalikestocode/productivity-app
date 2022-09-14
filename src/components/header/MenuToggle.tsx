@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react'
 import Button from '../Button'
 import {HiMenuAlt2, HiX} from 'react-icons/hi'

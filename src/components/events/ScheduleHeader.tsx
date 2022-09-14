@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react'
 import {motion, AnimateSharedLayout} from 'framer-motion'
 import {Link} from 'react-router-dom'

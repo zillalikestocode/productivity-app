@@ -1,3 +1,4 @@
+//@ts-nocheck
 import DarkToggle from './DarkToggle'
 import {useState} from 'react'
 import { motion } from 'framer-motion'

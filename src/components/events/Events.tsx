@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {useState} from 'react'
 import Days from './Days'
 import Schedule from './Schedule'

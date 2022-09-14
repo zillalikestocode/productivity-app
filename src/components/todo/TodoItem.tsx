@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {useState} from 'react'
 import {motion, AnimatePresence, AnimateSharedLayout, LayoutGroup} from 'framer-motion'
 import {TbCalendar, TbClock, TbPoint, TbX} from 'react-icons/tb'
