@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+	box-sizing: border-box;
+	font-family: Poppins, san-serif;
+}
+body {
+	width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden
+}
+.darkBg {
+	background-color:hsla(284,29%,22%,1);
+	background-image:
+	radial-gradient(at 100% 100%, hsla(266,43%,8%,1) 0px, transparent 50%),
+	radial-gradient(at 0% 0%, hsla(282,41%,42%,1) 0px, transparent 50%);
+}
+.lightBg {
+	background-color:hsla(256,100%,94%,1);
+	background-image:
+	radial-gradient(at 0% 0%, hsla(266,57%,77%,1) 0px, transparent 50%),
+	radial-gradient(at 96% 95%, hsla(258,57%,89%,1) 0px, transparent 50%);
+}
+.credits {
+	font-family: Alex Brush
+}
