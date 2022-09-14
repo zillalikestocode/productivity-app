@@ -2,7 +2,9 @@
 import {useState} from 'react'
 import {motion} from 'framer-motion'
 import {useAuth} from '../../../contexts/AuthContext'
-
+import WeekItem from './WeekItem'
+import Loader from '../../Loader'
+import WeekList from './WeekList.tsx'
 const Week = () => {
 	const {userInfo} = useAuth()
 	const list = userInfo?.events
@@ -20,18 +22,11 @@ const Week = () => {
     	week.push(new Date(date.setDate(first + i)).toDateString())
     }
     const weekEvents = list?.filter(item => week.includes(new Date(item.date).toDateString()))
-    console.log(weekEvents)
+  
 	return (
-		<motion.div className="mt-3 px-3">
+		<motion.div className="mt-3 px-3 flex flex-col gap-4">
 			{daysOfWeek.map((day, i) => (
-				<motion.div key={i} className="flex ">
-					{weekEvents.filter(item => new Date(item.date).toDateString().split(' ')[0] === day  ).length !== 0 && <h4 className="font-medium text-xl text-slate-600">{day}</h4>}
-					{weekEvents?.filter(item=> new Date(item.date).toDateString().split(' ')[0] === day)?.map((item, i)=>{
-						return (
-							<div key={i} className="ml-auto">{item.title}</div>
-						)
-					})}
-				</motion.div>
+				<WeekList week={week} key={i} day={day}/>
 			))}
 		</motion.div>
 	)

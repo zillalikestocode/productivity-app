@@ -11,7 +11,7 @@ const Settings = () => {
 	const [changeImg, setImg] = useState(false)
 	const [loading, setLoad] = useState(false)
 	return (
-		<div className="px-2">
+		<div className="px-5">
 			<h4 className="text-3xl font-medium dark:text-slate-200">Settings</h4>
 			<Home loading={loading} setImg={setImg} setName={setName} />
 			<AnimatePresence>{changeName && <Name setLoad={setLoad} setName={setName}/>}</AnimatePresence>
