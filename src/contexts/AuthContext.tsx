@@ -235,5 +235,5 @@ export const AuthProvider = ({
         value
     } > {
         children
-    } < /AuthContext.Provider>;
+    } </AuthContext.Provider>;
 };
