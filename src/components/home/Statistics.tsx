@@ -22,11 +22,11 @@ const Statistics = ()=>{
     }
     const weekStats = week.map(item => ({name: item[0], number: completed?.filter(i => new Date(i.date).toDateString() === item).length}))
   return (
-    <motion.div className="bg-gradient-to-br from-purple-500 w-56 h-56 to-purple-600 rounded-xl p-3">
+    <motion.div className="text-white bg-gradient-to-br from-purple-500 w-56 h-56 to-purple-600 rounded-xl p-3">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart width={300} height={400} data={weekStats}>
           <Line type='monotone' dataKey="number" />
-          <XAxis dataKey="name"/>
+          <XAxis tick={{fill: 'white'}} className="!text-white" dataKey="name"/>
         </LineChart>
       </ResponsiveContainer>
     </motion.div>
