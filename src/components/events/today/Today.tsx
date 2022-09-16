@@ -9,7 +9,7 @@ const Today = ({chosenDay}) => {
 	const variants = {
 		hidden: {
 			x: 0
-		}, 
+		},
 		visible: {
 			x: 0,
 			transition: {
@@ -24,9 +24,9 @@ const Today = ({chosenDay}) => {
 	const {userInfo} = useAuth()
 	const date = new Date(chosenDay)
 	const today = date.getFullYear() + '-' + (String(date.getMonth()).length === 1 ? '0' +(date.getMonth() + 1) : date.getMonth() + 1) + '-' + (String(date.getDate()).length === 1 ? '0' + date.getDate() : date.getDate())
-	let events = userInfo?.events.filter(item => item.date === today)
-	const todayEvents = events.sort((a, b)=> (a.time.split(':').concat() > b.time.split(':').concat()) ? 1 : -1)
-	
+	let events = userInfo?.events?.filter(item => item.date === today)
+	const todayEvents = events?.sort((a, b)=> (a.time.split(':').concat() > b.time.split(':').concat()) ? 1 : -1)
+
 	useEffect(()=>{
 		setDisable(true)
 	}, [selected])

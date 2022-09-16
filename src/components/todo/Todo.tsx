@@ -20,8 +20,8 @@ const Todo = () => {
 	const completed = userInfo?.completed
 	const today = date.getFullYear() + '-' + (String(date.getMonth()).length === 1 ? '0' +(date.getMonth() + 1) : date.getMonth() + 1) + '-' + (String(date.getDate()).length === 1 ? '0' + date.getDate() : date.getDate())
 	const yesterday = date.getFullYear() + '-' + (String(date.getMonth()).length === 1 ? '0' +(date.getMonth() + 1) : date.getMonth() + 1) + '-' + (String(date.getDate()).length === 1 ? '0' + (date.getDate() - 1) : (date.getDate() - 1))
-    const todayList = userInfo?.todos.filter((todo) => todo.date === today)
-	const otherDays = userInfo?.todos.filter((todo)=> todo.date !== today)
+    const todayList = userInfo?.todos?.filter((todo) => todo.date === today)
+	const otherDays = userInfo?.todos?.filter((todo)=> todo.date !== today)
 	const container = {
 		initial: {
 			x: 0,
@@ -37,20 +37,20 @@ const Todo = () => {
 			x: 0
 		}
 	}
-	useEffect(()=>{
-		async function removeCompleted(){
-			await deleteAllCompleted()
-		}
-		if (userInfo?.completed[0]?.date !== today){
-			removeCompleted()
-		}
-	}, [])
+	// useEffect(()=>{
+	// 	async function removeCompleted(){
+	// 		await deleteAllCompleted()
+	// 	}
+	// 	if (userInfo?.completed[0]?.date !== today){
+	// 		removeCompleted()
+	// 	}
+	// }, [])
 	return (
 		<AnimateSharedLayout>
 		<motion.div className="px-5 text-slate-900">
 			<motion.div className="flex items-center">
                  <div className="ml-5 relative flex items-center">
-                 <span className="text-slate-900 dark:text-slate-400"><FiSearch fontSize={25}/></span>    
+                 <span className="text-slate-900 dark:text-slate-400"><FiSearch fontSize={25}/></span>
 			     <motion.input placeholder="Search" className="font-medium text-slate-900 dark:text-slate-400 text-lg p-2 max-w-[55vw] bg-transparent focus:outline-none" />
                  </div>
 			    <Button onClick={()=> setAdd(true)} className="ml-auto mr-5 w-10 h-10 flex dark:shadow-violet-500/75 justify-center items-center rounded-full dark:bg-purple-700 shadow-lg shadow-violet-500 bg-gradient-to-br from-purple-400 to-purple-600 text-slate-200" text={<HiPlus fontSize={20}/>}/>
@@ -58,11 +58,11 @@ const Todo = () => {
 			<div>
 
 			{/*Todays task*/}
-			
+
 				<motion.div className="mt-2">
 				<h4 className="dark:text-slate-300 text-slate-600 font-medium text-lg mb-2">TODAY</h4>
 					{!todayLoading ? <motion.div variants={container} initial="initial" exit="exit" animate="animate" className="flex flex-col items-center gap-3">
-											{todayList.length !== 0 ? 
+											{todayList?.length !== 0 ?
 												todayList?.map((todo, i) => {
 													return (
 														<AnimatePresence>
@@ -80,9 +80,9 @@ const Todo = () => {
 						}
 					</motion.div>: <Loader unit="10" extra="mt-3" />}
 				</motion.div>
-				
+
 				{/*Other days*/}
-				{otherDays.length !== 0 && <motion.div className="mt-4">
+				{otherDays?.length !== 0 && <motion.div className="mt-4">
 								<h4 className="dark:text-slate-300 text-slate-600 font-medium text-lg mb-2">OTHER TASKS</h4>
 								{!dayLoading ? <motion.div variants={container} initial="initial" animate="animate" exit="exit" className="flex flex-col gap-4 items-center">
 																	{
@@ -91,7 +91,7 @@ const Todo = () => {
 																					<AnimatePresence>
 																					<TodoItem setLoading={setDay} key={i} todo={todo} />
 																					</AnimatePresence>
-																					
+
 																				)
 																			})
 																		}
@@ -99,7 +99,7 @@ const Todo = () => {
 								</motion.div>}
 			</div>
 			<Button className="fixed bottom-5 right-5 rounded-full bg-gradient-to-br shadow-lg dark:shadow-violet-500/75 shadow-violet-500 from-purple-400 to-purple-600 w-16 h-16 text-slate-200 flex items-center justify-center" text={<TbCalendar fontSize={30}/>} />
-			
+
 		</motion.div>
 		</AnimateSharedLayout>
 	)
