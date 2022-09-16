@@ -16,20 +16,20 @@ import Events from './components/events/Events'
 import AddEvent from './components/events/AddEvent'
 
 function App() {
-  const {currentUser, loading, setLoading,addEvent, setSidebar, sidebar, addPrompt} = useAuth()
+  const {currentUser,userInfo,  loading, setLoading,addEvent, setSidebar, sidebar, addPrompt} = useAuth()
   const [dark, setDark] = useState(false);
   const location = useLocation()
 
   const navigate = useNavigate()
   useEffect(()=>{
     setLoading(true)
-    if(currentUser?.email){
+    if(currentUser?.email && userInfo.name){
       navigate('/dashboard')
     }else{
       navigate('/welcome')
     }
     setLoading(false)
-  }, [currentUser])
+  }, [currentUser, userInfo])
 
 
   return (
