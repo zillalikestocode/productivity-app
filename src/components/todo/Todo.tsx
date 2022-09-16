@@ -20,8 +20,8 @@ const Todo = () => {
 	const completed = userInfo?.completed
 	const today = date.getFullYear() + '-' + (String(date.getMonth()).length === 1 ? '0' +(date.getMonth() + 1) : date.getMonth() + 1) + '-' + (String(date.getDate()).length === 1 ? '0' + date.getDate() : date.getDate())
 	const yesterday = date.getFullYear() + '-' + (String(date.getMonth()).length === 1 ? '0' +(date.getMonth() + 1) : date.getMonth() + 1) + '-' + (String(date.getDate()).length === 1 ? '0' + (date.getDate() - 1) : (date.getDate() - 1))
-    const todayList = userInfo?.todos.filter((todo) => todo.date === today)
-	const otherDays = userInfo?.todos.filter((todo)=> todo.date !== today)
+    const todayList = userInfo?.todos?.filter((todo) => todo.date === today)
+	const otherDays = userInfo?.todos?.filter((todo)=> todo.date !== today)
 	const container = {
 		initial: {
 			x: 0,
