@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {useAuth} from '../../contexts/AuthContext'
 import Statistics from './Statistics'
-
+import Widget from './Widget'
 const Home = ()=>{
 	const {userInfo} = useAuth()
 	return (
@@ -11,6 +11,7 @@ const Home = ()=>{
 			<div><h4 className="text-xl font-medium text-slate-600">Hello {userInfo?.name?.split(" ")[0]}</h4></div>
 			<div>
 				<Statistics />
+				<Widget />
 			</div>
 		</div>
 	)

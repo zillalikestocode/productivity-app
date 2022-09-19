@@ -33,12 +33,12 @@ const Statistics = ()=>{
   }
 
   return (
-    <motion.div variants={statistics} whileHover={{scale: 1.1}} whileTap={{scale: 1.1}} initial="hidden" animate="visible" className="text-white bg-gradient-to-br from-purple-400 shadow-xl shadow-violet-500 w-full h-42 mt-5 to-purple-600 rounded-xl p-3">
-    <h4 className="text-sm text-center text-slate-200">You have completed {completedThisWeek ? completedThisWeek.length : '0'} task(s) this week</h4>
+    <motion.div variants={statistics} whileHover={{scale: 1.1}} whileTap={{scale: 1.1}} initial="hidden" animate="visible" className="text-white relative h-44 bg-gradient-to-br from-purple-400 dark:from-purple-500 dark:shadow-none dark:to-purple-700 shadow-xl shadow-violet-500 w-full mt-5 to-purple-600 rounded-xl p-3">
+    <h4 className="text-sm text-center dark:text-white text-slate-200">You have completed {completedThisWeek ? completedThisWeek.length : '0'} task(s) this week</h4>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart width={300} height={400} data={weekStats}>
           <Line type='monotone' strokeWidth={2} stroke="#fff" dot={false} dataKey="number" />
-          <XAxis axisLine={false} interval="preserveStartEnd" tickLine={false} height={20} tick={{fill: 'white', fontSize: 12}} dataKey="name"/>
+          <XAxis axisLine={false} interval="preserveStartEnd" tickLine={false}  tick={{fill: 'white', fontSize: 12}} dataKey="name"/>
         </LineChart>
       </ResponsiveContainer>
     </motion.div>
