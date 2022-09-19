@@ -6,7 +6,7 @@ import {useAuth} from '../../contexts/AuthContext'
 
 const Statistics = ()=>{
   const {userInfo} = useAuth()
-  const completed = userInfo?.completed
+  const completed = userInfo?.completedWeek
   const date = new Date()
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   const today = new Date(date.getFullYear(), date.getMonth(), date.getDate())
@@ -33,7 +33,7 @@ const Statistics = ()=>{
   }
 
   return (
-    <motion.div variants={statistics} whileHover={{scale: 1.1}} whileTap={{scale: 1.1}} initial="hidden" animate="visible" className="text-white relative h-44 bg-gradient-to-br from-purple-400 dark:from-purple-500 dark:shadow-none dark:to-purple-700 shadow-xl shadow-violet-500 w-full mt-5 to-purple-600 rounded-xl p-3">
+    <motion.div variants={statistics} whileHover={{scale: 1.1}} whileTap={{scale: 1.1}} initial="hidden" animate="visible" className="text-white relative h-44 bg-gradient-to-br from-purple-400 dark:from-purple-500 dark:shadow-none dark:to-purple-700 shadow-lg shadow-purple-600 w-full mt-5 to-purple-600 rounded-xl p-3">
     <h4 className="text-sm text-center dark:text-white text-slate-200">You have completed {completedThisWeek ? completedThisWeek.length : '0'} task(s) this week</h4>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart width={300} height={400} data={weekStats}>

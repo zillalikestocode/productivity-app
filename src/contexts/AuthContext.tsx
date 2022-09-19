@@ -129,7 +129,8 @@ export const AuthProvider = ({
     const addToCompleted = async(todoData)=>{
         try{
             await updateDoc(doc(db, 'users', currentUser?.email), {
-                completed: arrayUnion(todoData)
+                completed: arrayUnion(todoData),
+                completedWeek: arrayUnion(todoData)
             })
             setData(prev => ({...prev, completed: [...prev.completed, todoData]}))
         }catch(err){
@@ -204,10 +205,11 @@ export const AuthProvider = ({
         addEvent,
         addToEvents,
         deleteEvents,
+        
     };
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setUser(user);
+            setUser(user)
         });
 
         return unsubscribe;

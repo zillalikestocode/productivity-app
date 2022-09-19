@@ -18,12 +18,13 @@ const variants = {
 }
 function TodoWidget(){
 	const {userInfo} = useAuth()
+	const todayTasks = userInfo?.todos?.filter(item => new Date(item.date).toDateString() === new Date().toDateString())
 	return(
 		<Link to="/todo"><motion.div whileTap={{scale: 0.85}} className="text-white dark:text-white bg-violet-500 rounded-xl p-4">
 			<div className="flex"><h4 className="font-medium text-2xl">Tasks</h4>
 				<Button text={<TbChevronRight fontSize={25} />} className="p-1 bg-white/25 rounded-lg ml-auto" />
 			</div>
-			<p className="text-sm text-slate-200 mt-2">You have tasks today</p>
+			<p className="text-sm text-slate-200 mt-2">You have {todayTasks ? todayTasks.length : '0'} task(s) today</p>
 			
 		</motion.div>
 		</Link>
@@ -31,12 +32,14 @@ function TodoWidget(){
 }
 
 function EventWidget() {
+	const {userInfo} = useAuth()
+	const todayEvents = userInfo?.events?.filter(item => new Date(item.date).toDateString() === new Date().toDateString())
 	return (
 		<Link to="/events"><motion.div whileTap={{scale: 0.85}} className="text-white dark:text-white bg-purple-500 dark:bg-[#332f6c] rounded-xl p-4">
 			<div className="flex"><h4 className="font-medium text-2xl">Events</h4>
 				<Button text={<TbChevronRight fontSize={25} />} className="p-1 bg-white/25 rounded-lg ml-auto" />
 			</div>
-			<p className="text-sm text-slate-200 mt-2">You have events today</p>
+			<p className="text-sm text-slate-200 mt-2">You have {todayEvents ? todayEvents.length : '0'} event(s) today</p>
 			
 		</motion.div>
 		</Link>

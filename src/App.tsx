@@ -16,10 +16,10 @@ import Events from './components/events/Events'
 import AddEvent from './components/events/AddEvent'
 
 function App() {
-  const {currentUser,userInfo,  loading, setLoading,addEvent, setSidebar, sidebar, addPrompt} = useAuth()
+  const {currentUser, userInfo, loading, setLoading,addEvent, setSidebar, sidebar, addPrompt} = useAuth()
   const [dark, setDark] = useState(false);
   const location = useLocation()
-
+  const {name} = userInfo ? userInfo : null
   const navigate = useNavigate()
   useEffect(()=>{
     setLoading(true)
@@ -29,9 +29,8 @@ function App() {
       navigate('/welcome')
     }
     setLoading(false)
-  }, [currentUser, userInfo])
-
-
+  }, [currentUser, name])
+  
   return (
     <div className={`${dark && 'dark'} min-h-screen overflow-hidden ${sidebar && 'fixed'} flex`}>
     <AnimatePresence>{sidebar && <Sidebar/>}</AnimatePresence>

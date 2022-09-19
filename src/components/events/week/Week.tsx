@@ -25,7 +25,7 @@ const Week = () => {
     const weekEvents = list?.filter(item => week.includes(new Date(item.date).toDateString()))
   
 	return (
-		<motion.div className="mt-3 px-3 flex flex-col gap-4">
+		<motion.div className="mt-3 px-3 flex flex-col gap-3">
 			{daysOfWeek.map((day, i) => (
 				<WeekList week={week} key={i} day={day}/>
 			))}
