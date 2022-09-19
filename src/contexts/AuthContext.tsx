@@ -177,7 +177,7 @@ export const AuthProvider = ({
             console.log(err.message)
         }
     }
-    const value = {
+    const value: {} = {
         currentUser,
         signUp,
         userInfo,
