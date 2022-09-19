@@ -5,6 +5,7 @@ import {useAuth} from '../../../contexts/AuthContext'
 import WeekItem from './WeekItem'
 import Loader from '../../Loader'
 import WeekList from './WeekList.tsx'
+
 const Week = () => {
 	const {userInfo} = useAuth()
 	const list = userInfo?.events
