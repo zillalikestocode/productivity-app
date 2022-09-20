@@ -32,16 +32,18 @@ const Today = ({chosenDay}) => {
 	}, [selected])
 	return (
 		<motion.div className="p-3">
-			<motion.div variants={variants} initial="hidden" animate="visible" exit="exit" className="flex flex-col gap-4 relative">
-			<div className="absolute left-1.5 top-0 bg-slate-300 bottom-0 w-1" />
-				{
-					todayEvents?.map((item, i)=>{
-						return (
-							<AnimatePresence><TodayItem disable={disablePrompt} setDisable={setDisable} key={i} item={item} selected={selected} setSelected={setSelected} /></AnimatePresence>
-						)
-					})
-				}
-			</motion.div>
+			{todayEvents.length !== 0 ? <motion.div variants={variants} initial="hidden" animate="visible" exit="exit" className="flex flex-col gap-4 relative">
+						<div className="absolute left-1.5 top-0 bg-slate-300 bottom-0 w-1" />
+							{
+								todayEvents?.map((item, i)=>{
+									return (
+										<AnimatePresence><TodayItem disable={disablePrompt} setDisable={setDisable} key={i} item={item} selected={selected} setSelected={setSelected} /></AnimatePresence>
+									)
+								})
+							}
+						</motion.div>: <motion.div className="text-slate-600 text-center dark:text-slate-300 p-5 text-sm">
+							<h4>You have no events scheduled for today</h4>
+						</motion.div>}
 		</motion.div>
 	)
 }

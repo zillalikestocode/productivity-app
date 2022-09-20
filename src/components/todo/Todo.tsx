@@ -98,7 +98,7 @@ const Todo = () => {
 																</motion.div>: <Loader unit="10" extra="mt-3" />}
 								</motion.div>}
 			</div>
-			<Button className="fixed bottom-5 right-5 rounded-full bg-gradient-to-br shadow-lg dark:shadow-violet-500/75 shadow-violet-500 from-purple-400 to-purple-600 w-16 h-16 text-slate-200 flex items-center justify-center" text={<TbCalendar fontSize={30}/>} />
+			
 
 		</motion.div>
 		</AnimateSharedLayout>

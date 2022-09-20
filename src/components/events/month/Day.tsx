@@ -5,7 +5,6 @@ import {useAuth} from '../../../contexts/AuthContext'
 import MonthList from './MonthList'
 
 export default ({day, firstNo})=>{
-	console.log(import.meta.env.VITE_API_KEY)
 	const [more, setMore] = useState(false)
 	const {userInfo} = useAuth()
 	// const thisDay = date.getFullYear() + '-' + (String(date.getMonth()).length === 1 ? '0' +(date.getMonth() + 1) : date.getMonth() + 1) + '-' + (String(date.getDate()).length === 1 ? '0' + date.getDate() : date.getDate())
@@ -16,7 +15,6 @@ export default ({day, firstNo})=>{
 		gridColumnStart: firstNo
 	}
 	const today = new Date().toDateString()
-	console.log(new Date(day).getMonth())
 	return (
 		<AnimateSharedLayout>
 		<motion.div layoutId={day} onClick={()=>setMore(true)} style={firstDay && style} className={`w-8 m-auto rounded-md py-1 ${today === day ? 'bg-purple-500 text-white' : ''}`}>

@@ -26,9 +26,11 @@ const Week = () => {
   
 	return (
 		<motion.div className="mt-3 px-3 flex flex-col gap-3">
-			{daysOfWeek.map((day, i) => (
+			{weekEvents.length !== 0 ? daysOfWeek.map((day, i) => (
 				<WeekList week={week} key={i} day={day}/>
-			))}
+			)): <motion.div className="text-slate-600 dark:text-slate-300 text-center p-5 text-sm">
+                            <h4>You have no events scheduled for this week</h4>
+                        </motion.div>}
 		</motion.div>
 	)
 }

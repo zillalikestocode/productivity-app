@@ -39,12 +39,14 @@ const MonthList = ({chosenDay, setMore}) => {
 		</div>
 			<motion.div variants={variants} initial="hidden" animate="visible" exit="exit" className="flex flex-col gap-4 h-96 overflow-y-scroll month-scroll relative">
 				{
-					todayEvents?.map((item, i)=>{
+					todayEvents.length !== 0 ? todayEvents?.map((item, i)=>{
 						return (
 							<AnimatePresence><MonthItem disable={disablePrompt} setDisable={setDisable} key={i} item={item} selected={selected} setSelected={setSelected} /></AnimatePresence>
 						)
 					})
-				}
+				: <motion.div className="text-slate-100 text-center dark:text-slate-300 p-5 text-base">
+							<h4>You have no events scheduled for this day</h4>
+						</motion.div>}
 			</motion.div>
 		</motion.div>
 	)

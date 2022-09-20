@@ -27,7 +27,7 @@ const WeekItem = ({item, setLoader}) => {
 			<h4 className="text-sm font-medium">{item.time ? item.time : '--'}</h4>
 		</motion.div>
 		{full && <div className="fixed top-0 right-0 z-30 bottom-0 left-0" onClick={()=> showFull(false)} />}
-		<AnimatePresence>{full && <motion.div layoutId={item.id} className="z-40 text-white absolute rounded-md p-5 min-h-[100px] top-16 left-0 bg-gradient-to-br from-purple-400 to-purple-600 right-0 m-auto w-72">
+		<AnimatePresence>{full && <motion.div layoutId={item.id} className="z-40 text-white absolute rounded-md p-5 min-h-[100px] top-24 left-0 bg-gradient-to-br from-purple-400 to-purple-600 right-0 m-auto w-72">
 					<Button className="absolute right-3" text={<TbX fontSize={20}/>} onClick={()=> showFull(false)} />
 					<h4 className="text-2xl font-medium ">{item.title}</h4>
 					<p className="mt-5">{item.note ? item.note  : '--'}</p>
